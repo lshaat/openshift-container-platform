@@ -76,7 +76,7 @@ yum -y install atomic-openshift-utils
 # Run Ansible Playbook to update ansible.cfg file
 
 echo $(date) " - Updating ansible.cfg file"
-wget https://raw.githubusercontent.com/microsoft/openshift-container-platform-playbooks/master/updateansiblecfg.yaml
+wget https://raw.githubusercontent.com/lshaat/openshift-container-platform-playbooks/master/updateansiblecfg.yaml
 ansible-playbook ./updateansiblecfg.yaml
 
 echo $(date) " - Script Complete"
