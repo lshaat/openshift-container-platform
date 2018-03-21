@@ -60,6 +60,8 @@ subscription-manager repos \
 # Install base packages and update system to latest packages
 echo $(date) " - Install base packages and update system to latest packages"
 
+
+
 yum -y install wget git net-tools bind-utils iptables-services bridge-utils bash-completion httpd-tools kexec-tools sos psacct
 yum -y update --exclude=WALinuxAgent
 yum -y install atomic-openshift-excluder atomic-openshift-docker-excluder
@@ -76,6 +78,8 @@ yum -y install atomic-openshift-utils
 # Run Ansible Playbook to update ansible.cfg file
 
 echo $(date) " - Updating ansible.cfg file"
+yum -y install docker-1.12.6
+yum downgrade docker-client-1.12.6 docker-common-1.12.6 docker-rhel-push-plugin-1.12.6 docker-1.12.6
 wget https://raw.githubusercontent.com/lshaat/openshift-container-platform-playbooks/master/updateansiblecfg.yaml
 ansible-playbook ./updateansiblecfg.yaml
 
